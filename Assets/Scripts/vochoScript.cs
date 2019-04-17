@@ -5,12 +5,17 @@ using UnityEngine;
 public class vochoScript : MonoBehaviour
     
 {
+    public AudioClip choque;
+    public AudioClip salto;
+    public AudioClip paloma;
+    AudioSource audiovocho;
     public bool onGround;
     public bool perdiste;
     public bool volar;
 
     private void Start()
     {
+        audiovocho=GetComponent<AudioSource>();
         perdiste = false;
         volar = false;
     }
@@ -19,11 +24,15 @@ public class vochoScript : MonoBehaviour
         if (other.gameObject.tag == "obstacle")
         {
             Debug.Log("perdiste");
+            audiovocho.clip = choque;
+            audiovocho.Play();
             perdiste = true;
         }
         if (other.gameObject.tag == "paloma")
         {
             Debug.Log("reypalomo");
+            audiovocho.clip = paloma;
+            audiovocho.Play();
             Destroy(other.gameObject);
             volar = true;
            
@@ -44,7 +53,8 @@ public class vochoScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            
+            audiovocho.clip = salto;
+            audiovocho.Play();
             onGround = false;
         }
        
