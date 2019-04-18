@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Gamemanager : MonoBehaviour
 {
+    
     float timer;
     public GameObject palomero;
     public GameObject paloma;

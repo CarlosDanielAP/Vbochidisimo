@@ -5,6 +5,7 @@ using UnityEngine;
 public class vochoScript : MonoBehaviour
     
 {
+    public ParticleSystem particulaschoque;
     public AudioClip choque;
     public AudioClip salto;
     public AudioClip paloma;
@@ -12,6 +13,8 @@ public class vochoScript : MonoBehaviour
     public bool onGround;
     public bool perdiste;
     public bool volar;
+    public GameObject vocho;
+    public GameObject alitas;
 
     private void Start()
     {
@@ -23,10 +26,13 @@ public class vochoScript : MonoBehaviour
     {
         if (other.gameObject.tag == "obstacle")
         {
+            particulaschoque.GetComponent<ParticleSystem>().Play();
             Debug.Log("perdiste");
             audiovocho.clip = choque;
             audiovocho.Play();
             perdiste = true;
+            alitas.SetActive(false);
+            vocho.SetActive(false);
         }
         if (other.gameObject.tag == "paloma")
         {
