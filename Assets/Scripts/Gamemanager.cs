@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Gamemanager : MonoBehaviour
 {
-    
+    public Text scoreText;
+    int score;
     float timer;
     public GameObject palomero;
     public GameObject paloma;
@@ -29,6 +32,7 @@ public class Gamemanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+     
         timer = 1f;
         obsctaclesongame = false;
         vochoRB = vochito.GetComponent<Rigidbody>();
@@ -47,6 +51,7 @@ public class Gamemanager : MonoBehaviour
     }
     void Update()
     {
+           scoreText.text=score.ToString()+" KM";
 
         timer -= Time.deltaTime;
        
@@ -93,6 +98,8 @@ public class Gamemanager : MonoBehaviour
 
             if (calles[0].transform.position.x < -40f)
             {
+                //aqui se cren las callesitas y aumenta el  score cada que creamos una
+                score++;
                 Destroy(calles[0]);
                 calles.Remove(calles[0]);
 
