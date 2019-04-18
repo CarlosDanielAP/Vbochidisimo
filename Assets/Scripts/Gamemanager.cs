@@ -42,13 +42,6 @@ public class Gamemanager : MonoBehaviour
 
     
 
-    private void FixedUpdate()
-    {
-        if (!finDelJuego)
-        {
-          
-        }
-    }
     void Update()
     {
            scoreText.text=score.ToString()+" KM";
