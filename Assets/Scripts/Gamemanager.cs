@@ -29,9 +29,12 @@ public class Gamemanager : MonoBehaviour
     bool obsctaclesongame;
     public int espacioObstaculos = 3;
     public bool finDelJuego;
+    public GameObject bestscoreimage;
     // Start is called before the first frame update
+    bool bestscore;
     void Start()
     {
+        bestscore=false;
      
         timer = 1f;
         obsctaclesongame = false;
@@ -52,10 +55,15 @@ public class Gamemanager : MonoBehaviour
 
         if (vochito.GetComponent<vochoScript>().perdiste)
         {
+            checkScore();
             finDelJuego = true;
             velocidad = 0;
             parallax.GetComponent<FreeParallax>().Speed = 0f;
+        if(bestscore){
+            //logito bestscore
+        }
             uxAnimation.SetTrigger("Loose");
+            
         }
 
         if (!finDelJuego)
@@ -148,5 +156,23 @@ public class Gamemanager : MonoBehaviour
     public void irmenu()
     {
         SceneManager.LoadScene("menu");
+    }
+
+    void checkScore(){
+        if(score>PlayerPrefs.GetInt("best")){
+            PlayerPrefs.SetInt("best",score);
+            bestscore=true;
+            bestscoreimage.SetActive(true);
+            Social.ReportScore(score, pillueloscores.leaderboard_los_pilluelos_mas_voladores, (bool success) => {
+            if (success)
+            {
+                Debug.Log("Posted new score to leaderboard");
+            }
+            else
+            {
+                Debug.LogError("Unable to post new score to leaderboard");
+            }
+        });
+        }
     }
 }

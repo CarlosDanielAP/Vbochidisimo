@@ -27,6 +27,20 @@ public class PlayGamesController : MonoBehaviour {
             if (success == true)
             {
                 Debug.Log("Logged in to Google Play Games Services");
+                
+if(PlayerPrefs.GetInt("best")>0){
+                   Social.ReportScore(PlayerPrefs.GetInt("best"), pillueloscores.leaderboard_los_pilluelos_mas_voladores, (bool successo) => {
+            if (successo)
+            {
+                Debug.Log("Posted new score to leaderboard");
+            }
+            else
+            {
+                Debug.LogError("Unable to post new score to leaderboard");
+            }
+        });
+}
+  
 
                 SceneManager.LoadScene("menu");
             }

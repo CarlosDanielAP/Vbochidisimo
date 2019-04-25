@@ -9,11 +9,15 @@ using UnityEngine.UI;
 public class menumanager : MonoBehaviour
 {
     bool conexion;
-public Text warning;
+public Text score;
 
+private void Start() {
+    
+ //cada que inicie colocamos el score mas alto del jugador  
+   score.text= "best score: "+PlayerPrefs.GetInt("best").ToString();
+}
 
-
-    public void irjuego()
+public void irjuego()
     {
         SceneManager.LoadScene("salto");
 
