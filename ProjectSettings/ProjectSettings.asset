@@ -160,7 +160,7 @@ PlayerSettings:
     Android: com.ChileDelQuePica.PilloBvochido
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 4
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 4
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/U-_O_/Documents/Vbochidisimo/KeysPlaystore/user.keystore
+  AndroidKeystoreName: KeysPlaystore/user.keystore
   AndroidKeyaliasName: danahpa
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1

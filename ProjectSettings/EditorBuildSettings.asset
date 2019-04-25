@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GPGSAuth.unity
+    guid: 59bd04a5f97047643951aa984ded6e42
+  - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 1466a27905228e740b64e36f605e771c
   - enabled: 1
     path: Assets/Scenes/salto.unity
     guid: 07e1313ada905f441932e3c3912fba1f
+  - enabled: 0
+    path: Assets/Scenes/LeaderboardUI.unity
+    guid: b4659ae46acff5c42aad75fc23d49800
   m_configObjects: {}

@@ -142,11 +142,11 @@ public class Gamemanager : MonoBehaviour
 
     public void restartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("salto");
     }
 
     public void irmenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("menu");
     }
 }

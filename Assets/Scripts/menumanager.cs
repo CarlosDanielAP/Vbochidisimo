@@ -2,24 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.UI;
 
 public class menumanager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool conexion;
+public Text warning;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void irjuego()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("salto");
 
     }
+
+ public void ShowLeaderboards()
+    {
+#if UNITY_ANDROID
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI();
+        }
+        else
+        {
+            Debug.Log("Cannot show leaderboard: not authenticated");
+        }
+#endif
+    }
+
+
 }
